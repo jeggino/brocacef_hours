@@ -3,3 +3,4 @@ pandas
 streamlit_option_menu
 altair
 streamlit
+datetime
