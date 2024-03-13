@@ -52,5 +52,4 @@ db_content = load_dataset()
 df = pd.DataFrame(db_content)
 df['date'] = pd.to_datetime(df['date'])
 df['week_of_year'] = df['date'].dt.isocalendar().week
-st.write(df['week_of_year'].sum())
-st.bar_chart(df, x="date", y="working_hours")
+df.groupby("week_of_year").sum()
