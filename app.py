@@ -34,7 +34,7 @@ selected = option_menu(None, ['✍️','📊'],
                        default_index=0,
                        orientation="horizontal")
 
-if selected == ✍️:
+if selected == '✍️'✍:
   date = st.date_input("Date", datetime.datetime.today())
   start_hour = str(st.time_input('Start time', datetime.time(14, 45),step=300))
   finish_hour = str(st.time_input('Finish time', datetime.time(22, 00),step=300))
@@ -61,7 +61,7 @@ if selected == ✍️:
     insert_input(date,start_hour,finish_hour,long_brake,short_brake,working_hours)
     st.write(f"You worked {working_hours} hours")
     
-if selected == 📊:
+if selected == '📊':
   
   db_content = load_dataset()
   df = pd.DataFrame(db_content)
