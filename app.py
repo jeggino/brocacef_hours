@@ -36,8 +36,8 @@ with st.sidebar:
   long_brake_values = 0.5
   short_brake_values = 0.25
 
-  d1 = datetime.datetime.strptime(finish_hour, "%H:%M")
-  d2 = datetime.datetime.strptime(start_hour, "%H:%M")
+  d1 = datetime.datetime.strptime(finish_hour, "%H:%M:%s")
+  d2 = datetime.datetime.strptime(start_hour, "%H:%M:%s")
   d = d1-d2
   working_hours = (d.total_seconds()/60)/60 - long_brake * long_brake_values - short_brake * short_brake_values
 
