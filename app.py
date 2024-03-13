@@ -30,8 +30,8 @@ with st.sidebar:
     st.info('insert a time', icon="ℹ️")
     st.stop()
   
-  long_brake = st.number_input("Insert a long brake", value=0, placeholder="Type a number...",key="a")
-  short_brake = st.number_input("Insert a short brake", value=0, placeholder="Type a number...",key="b")
+  long_brake = st.number_input("Insert a long brake", value=0, placeholder="Type a number...",key="a",step=300)
+  short_brake = st.number_input("Insert a short brake", value=0, placeholder="Type a number...",key="b",step=300)
   long_brake_values = 0.5
   short_brake_values = 0.25
 
@@ -39,7 +39,6 @@ with st.sidebar:
   d2 = datetime.datetime.strptime(start_hour, "%H:%M:%S")
   d = d1-d2
   working_hours = (d.total_seconds()/60)/60 - long_brake * long_brake_values - short_brake * short_brake_values
-  st.write(working_hours)
   
   submitted = st.button("Insert hours")
   
