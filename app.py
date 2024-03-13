@@ -38,7 +38,7 @@ with st.sidebar:
   d1 = datetime.datetime.strptime(finish_hour, "%H:%M:%S")
   d2 = datetime.datetime.strptime(start_hour, "%H:%M:%S")
   d = d1-d2
-  working_hours = round((d.total_seconds()/60)/60 - long_brake * long_brake_values - short_brake * short_brake_values)
+  working_hours = round((d.total_seconds()/60)/60 - long_brake * long_brake_values - short_brake * short_brake_values,2)
   
   submitted = st.button("Insert hours")
   
