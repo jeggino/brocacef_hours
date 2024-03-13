@@ -23,6 +23,7 @@ def insert_input(date,start_hour,finish_hour,long_brake,short_brake,working_hour
 with st.sidebar:
   date = st.date_input("Date", datetime.datetime.today())
   start_hour = str(st.time_input('Start time', datetime.time(14, 45)))
+  st.write(start_hour)
   finish_hour = str(st.time_input('Finish time', value=None))
  
   if finish_hour is None:
