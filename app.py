@@ -49,6 +49,8 @@ with st.sidebar:
     
                 
 db_content = load_dataset()
-df_point = pd.DataFrame(db_content)
-
-st.bar_chart(df_point, x="date", y="working_hours")
+df = pd.DataFrame(db_content)
+df['date'] = pd.to_datetime(df['date'])
+df['week_of_year'] = df['date'].dt.weekofyear
+st.write(df['week_of_year'].sum())
+st.bar_chart(df, x="date", y="working_hours")
