@@ -51,4 +51,4 @@ with st.sidebar:
 db_content = load_dataset()
 df_point = pd.DataFrame(db_content)
 
-df_point
+st.bar_chart(df_point, x="date", y="working_hours")
