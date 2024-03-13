@@ -28,14 +28,12 @@ with st.sidebar:
   st.write(finish_hour)
   
   if finish_hour is None:
-    
-    st.write("insert a time")
+
+    st.info('insert a time', icon="ℹ️")
     st.stop()
   
   long_brake = st.number_input("Insert a long brake", value=0, placeholder="Type a number...",key="a")
   short_brake = st.number_input("Insert a short brake", value=0, placeholder="Type a number...",key="b")
-  
-  
   long_brake_values = 0.5
   short_brake_values = 0.25
   
