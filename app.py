@@ -2,7 +2,7 @@ import streamlit as st
 
 import pandas as pd
 
-from datetime import datetime
+import datetime
 
 from deta import Deta
 
@@ -21,7 +21,7 @@ def insert_input(date,start_hour,finish_hour,long_brake,short_brake,working_hour
 # --- APP ---
 
 with st.sidebar:
-  today = datetime.today()
+  today = datetime.datetime.today()
   st.write(today)
   date = st.date_input("Date", datetime.today())
   start_hour = st.time_input('Start time', datetime.time(14, 45))
