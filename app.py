@@ -23,15 +23,15 @@ def insert_input(date,start_hour,finish_hour,long_brake,short_brake,working_hour
 with st.sidebar:
   date = st.date_input("Date", datetime.datetime.today())
   start_hour = str(st.time_input('Start time', datetime.time(14, 45),step=300))
-  finish_hour = str(st.time_input('Finish time', value=None,step=300))
+  finish_hour = str(st.time_input('Finish time', datetime.time(22, 00),step=300))
  
   if finish_hour is None:
 
     st.info('insert a time', icon="ℹ️")
     st.stop()
   
-  long_brake = st.number_input("Insert a long brake", value=0, placeholder="Type a number...",key="a")
-  short_brake = st.number_input("Insert a short brake", value=0, placeholder="Type a number...",key="b")
+  long_brake = st.number_input("Insert a long brake", value=1, placeholder="Type a number...",key="a")
+  short_brake = st.number_input("Insert a short brake", value=1, placeholder="Type a number...",key="b")
   long_brake_values = 0.5
   short_brake_values = 0.25
 
