@@ -24,9 +24,7 @@ with st.sidebar:
   date = st.date_input("Date", datetime.datetime.today())
   start_hour = st.time_input('Start time', datetime.time(14, 45))
   finish_hour = st.time_input('Finish time', value=None)
-  st.write(start_hour)
-  st.write(finish_hour)
-  
+ 
   if finish_hour is None:
 
     st.info('insert a time', icon="ℹ️")
