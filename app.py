@@ -24,14 +24,16 @@ with st.sidebar:
   date = st.date_input("Date", datetime.datetime.today())
   start_hour = st.time_input('Start time', datetime.time(14, 45))
   finish_hour = st.time_input('Finish time', value=None)
+  st.write(start_hour)
+  st.write(finish_hour)
   
   if finish_hour is None:
     
     st.write("insert a time")
     st.stop()
   
-  long_brake = st.number_input("Insert a number", value=0, placeholder="Type a number...",key="a")
-  short_brake = st.number_input("Insert a number", value=0, placeholder="Type a number...",key="b")
+  long_brake = st.number_input("Insert a long brake", value=0, placeholder="Type a number...",key="a")
+  short_brake = st.number_input("Insert a short brake", value=0, placeholder="Type a number...",key="b")
   
   
   long_brake_values = 0.5
