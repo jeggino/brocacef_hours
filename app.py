@@ -16,7 +16,7 @@ def load_dataset():
 
 def insert_input(date,start_hour,finish_hour,long_brake,short_brake,working_hours):
 
-  return db.put({"date":date,"start_hour":start_hour,"finish_hour":finish_hour,"long_brake":long_brake,"short_brake":short_brake,"working_hours":working_hours})
+  return db.put({"date":str(date),"start_hour":start_hour,"finish_hour":finish_hour,"long_brake":long_brake,"short_brake":short_brake,"working_hours":working_hours})
 
 # --- APP ---
 
