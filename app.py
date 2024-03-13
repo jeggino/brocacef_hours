@@ -34,7 +34,7 @@ selected = option_menu(None, ['✍️','📊'],
                        default_index=0,
                        orientation="horizontal")
 
-if selected == '✍️'✍:
+if selected == '✍️':
   date = st.date_input("Date", datetime.datetime.today())
   start_hour = str(st.time_input('Start time', datetime.time(14, 45),step=300))
   finish_hour = str(st.time_input('Finish time', datetime.time(22, 00),step=300))
