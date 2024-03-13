@@ -30,8 +30,8 @@ with st.sidebar:
     st.write("insert a time")
     st.stop()
   
-  long_brake = st.number_input("Insert a number", value=0, placeholder="Type a number...")
-  short_brake = st.number_input("Insert a number", value=0, placeholder="Type a number...")
+  long_brake = st.number_input("Insert a number", value=0, placeholder="Type a number...",key="a")
+  short_brake = st.number_input("Insert a number", value=0, placeholder="Type a number...",key="b")
   
   
   long_brake_values = 0.5
