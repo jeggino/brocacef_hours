@@ -1,10 +1,19 @@
 import streamlit as st
+from streamlit_option_menu import option_menu
 
 import pandas as pd
 
 import datetime
 
 from deta import Deta
+
+# --- CONFIGURATION ---
+st.set_page_config(
+    page_title="Brocacef",
+    page_icon="💪",
+    layout="wide",
+    
+)
 
 # --- CONNECT TO DETA ---
 deta = Deta(st.secrets["deta_key"])
@@ -19,8 +28,13 @@ def insert_input(date,start_hour,finish_hour,long_brake,short_brake,working_hour
   return db.put({"date":str(date),"start_hour":start_hour,"finish_hour":finish_hour,"long_brake":long_brake,"short_brake":short_brake,"working_hours":working_hours})
 
 # --- APP ---
+# horizontal menu
+selected = option_menu(None, ['✍️','📊'], 
+                       icons=None,
+                       default_index=0,
+                       orientation="horizontal")
 
-with st.sidebar:
+if selected == ✍️:
   date = st.date_input("Date", datetime.datetime.today())
   start_hour = str(st.time_input('Start time', datetime.time(14, 45),step=300))
   finish_hour = str(st.time_input('Finish time', datetime.time(22, 00),step=300))
@@ -47,9 +61,10 @@ with st.sidebar:
     insert_input(date,start_hour,finish_hour,long_brake,short_brake,working_hours)
     st.write(f"You worked {working_hours} hours")
     
-                
-db_content = load_dataset()
-df = pd.DataFrame(db_content)
-df['date'] = pd.to_datetime(df['date'])
-df['week_of_year'] = df['date'].dt.isocalendar().week
-st.dataframe(df.groupby("week_of_year",as_index=False)["working_hours"].sum(),hide_index=True)
+if selected == 📊:
+  
+  db_content = load_dataset()
+  df = pd.DataFrame(db_content)
+  df['date'] = pd.to_datetime(df['date'])
+  df['week_of_year'] = df['date'].dt.isocalendar().week
+  st.dataframe(df.groupby("week_of_year",as_index=False)["working_hours"].sum(),hide_index=True)
