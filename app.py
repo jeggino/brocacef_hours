@@ -52,4 +52,4 @@ db_content = load_dataset()
 df = pd.DataFrame(db_content)
 df['date'] = pd.to_datetime(df['date'])
 df['week_of_year'] = df['date'].dt.isocalendar().week
-st.table(df.groupby("week_of_year")["working_hours"].sum())
+st.table(df.groupby("week_of_year",as_index=False)["working_hours"].sum())
