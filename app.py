@@ -67,17 +67,17 @@ if selected == '📊':
     df = pd.DataFrame(db_content)
     df['date'] = pd.to_datetime(df['date'])
     df['week_of_year'] = df['date'].dt.isocalendar().week
-    data_df = st.dataframe(df.groupby("week_of_year",as_index=False)["working_hours"].sum(),hide_index=True)
+    data_df = df.groupby("week_of_year",as_index=False)["working_hours"].sum()
 
     st.data_editor(
-    df,
+    data_df,
     column_config={
         "working_hours": st.column_config.ProgressColumn(
             "Hours",
             help="Number of hours per week",
             format='%d',
             min_value=0,
-            max_value=df.working_hours.max(),
+            max_value=data_df.working_hours.max(),
         ),
     },
     hide_index=True,
