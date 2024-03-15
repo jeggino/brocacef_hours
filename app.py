@@ -70,7 +70,7 @@ if selected == '📊':
     data_df = st.dataframe(df.groupby("week_of_year",as_index=False)["working_hours"].sum(),hide_index=True)
 
     st.data_editor(
-    data_df,
+    df,
     column_config={
         "working_hours": st.column_config.ProgressColumn(
             "Hours",
