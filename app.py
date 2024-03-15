@@ -72,8 +72,8 @@ if selected == '📊':
     st.data_editor(
     data_df,
     column_config={
-        "Hours": st.column_config.ProgressColumn(
-            "working_hours",
+        "working_hours": st.column_config.ProgressColumn(
+            "Hours",
             help="Number of hours per week",
             min_value=0,
             max_value=None,
