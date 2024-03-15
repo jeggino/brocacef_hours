@@ -63,8 +63,22 @@ if selected == '✍️':
     
 if selected == '📊':
   
-  db_content = load_dataset()
-  df = pd.DataFrame(db_content)
-  df['date'] = pd.to_datetime(df['date'])
-  df['week_of_year'] = df['date'].dt.isocalendar().week
-  st.dataframe(df.groupby("week_of_year",as_index=False)["working_hours"].sum(),hide_index=True)
+    db_content = load_dataset()
+    df = pd.DataFrame(db_content)
+    df['date'] = pd.to_datetime(df['date'])
+    df['week_of_year'] = df['date'].dt.isocalendar().week
+    data_df = st.dataframe(df.groupby("week_of_year",as_index=False)["working_hours"].sum(),hide_index=True)
+
+    st.data_editor(
+    data_df,
+    column_config={
+        "Hours": st.column_config.ProgressColumn(
+            "working_hours",
+            help="Number of hours per week",
+            min_value=0,
+            max_value=None,
+        ),
+    },
+    hide_index=True,
+)
+
