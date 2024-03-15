@@ -38,7 +38,7 @@ if selected == '✍️':
   date = st.date_input("Date", datetime.datetime.today())
   start_hour = str(st.time_input('Start time', datetime.time(14, 45),step=300))
   finish_hour = str(st.time_input('Finish time', datetime.time(22, 00),step=300))
- 
+
   if finish_hour is None:
 
     st.info('insert a time', icon="ℹ️")
