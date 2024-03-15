@@ -72,6 +72,7 @@ if selected == '📊':
     st.data_editor(
     data_df,
     column_config={
+        "week_of_the_year": "Week",
         "working_hours": st.column_config.ProgressColumn(
             "Hours",
             help="Number of hours per week",
@@ -81,5 +82,6 @@ if selected == '📊':
         ),
     },
     hide_index=True,
+        use_container_width = True
 )
 
