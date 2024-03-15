@@ -75,7 +75,7 @@ if selected == '📊':
         "working_hours": st.column_config.ProgressColumn(
             "Hours",
             help="Number of hours per week",
-            format='%.3g',
+            format='%.4g',
             min_value=0,
             max_value=data_df.working_hours.max(),
         ),
