@@ -78,7 +78,7 @@ if selected == '📊':
             help="Number of hours per week",
             format='%.4g',
             min_value=0,
-            max_value=40,
+            max_value=data_df.working_hours.max(),
         ),
     },
     hide_index=True,
