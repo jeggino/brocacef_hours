@@ -85,3 +85,6 @@ if selected == '📊':
         use_container_width = True
 )
 
+    average = data_df["working_hours"].mean()
+    st.write(f"Average hours per week: {average}")
+
