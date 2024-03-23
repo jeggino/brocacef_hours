@@ -85,6 +85,9 @@ if selected == '📊':
         use_container_width = True
 )
 
-    average = data_df["working_hours"].mean()
+    average_week = data_df["working_hours"].mean()
+    average_day = df["working_hours"].mean()
     st.write(f"Average hours per week: {average}")
+    st.write(f"Average hours per day: {average_day}")
+    
 
