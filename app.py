@@ -87,7 +87,12 @@ if selected == '📊':
 
     average_week = round(data_df["working_hours"].mean(),2)
     average_day = round(df["working_hours"].mean(),2)
-    st.write(f"Average hours per week: {average_week}")
-    st.write(f"Average hours per day: {average_day}")
-    
+    st.markdown(f"**Average hours per week**: {average_week}")
+    st.markdown(f"**Average hours per day**: {average_day}")
 
+
+with st.popover("Open popover"):
+    st.markdown("Hello World 👋")
+    name = st.text_input("What's your name?")
+
+st.write("Your name:", name)
