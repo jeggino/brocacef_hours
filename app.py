@@ -67,7 +67,7 @@ if selected == '📊':
     df = pd.DataFrame(db_content)
     df['date'] = pd.to_datetime(df['date'])
     df['week_of_year'] = df['date'].dt.isocalendar().week
-    df['day_of_the_week'] = df['date'].dt.dayofweek 
+    df['day_of_the_week'] = df['date'].dt.day_name() 
     data_df = df.groupby("week_of_year",as_index=False)["working_hours"].sum()
     data_df_day = df.groupby("day_of_the_week",as_index=False)["working_hours"].mean()
 
