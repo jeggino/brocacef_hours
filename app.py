@@ -67,7 +67,9 @@ if selected == '📊':
     df = pd.DataFrame(db_content)
     df['date'] = pd.to_datetime(df['date'])
     df['week_of_year'] = df['date'].dt.isocalendar().week
+    df['day_of_the_week'] = df['date'].dt.dayofweek 
     data_df = df.groupby("week_of_year",as_index=False)["working_hours"].sum()
+    data_df_day = df.groupby("day_of_the_week",as_index=False)["working_hours"].mean()
 
     st.data_editor(
     data_df,
@@ -87,12 +89,7 @@ if selected == '📊':
 
     average_week = round(data_df["working_hours"].mean(),2)
     average_day = round(df["working_hours"].mean(),2)
+    max_day = round(data_df_day["working_hours"].max(),2)
     st.markdown(f"**Average hours per week**: {average_week}")
     st.markdown(f"**Average hours per day**: {average_day}")
-
-
-with st.popover("Open popover"):
-    st.markdown("Hello World 👋")
-    name = st.text_input("What's your name?")
-
-st.write("Your name:", name)
+    st.markdown(f"**{max_day}** is the day you work more")
