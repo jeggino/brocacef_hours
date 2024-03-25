@@ -91,9 +91,11 @@ if selected == '📊':
     average_week = round(data_df["working_hours"].mean(),2)
     average_day = round(df["working_hours"].mean(),2)
     max_day = data_df_day.loc[data_df_day['working_hours']==data_df_day['working_hours'].max(), 'day_of_the_week'].squeeze()
+    less_day = data_df_day.loc[data_df_day['working_hours']==data_df_day['working_hours'].min(), 'day_of_the_week'].squeeze()
     max_day_hours = round(data_df_day["working_hours"].max(),2)
+    min_day_hours = round(data_df_day["working_hours"].min(),2)
     st.markdown(f"**Average hours per week**: {average_week}")
     st.markdown(f"**Average hours per day**: {average_day}")
-    st.markdown(f"**{max_day}** ({max_day_hours}) is the day you work more")
+    st.markdown(f"**{max_day}** ({max_day_hours}) is the day when you work more, and **{less_day}** ({min_day_hours}) is the day when you work les")
 
     data_df_day
