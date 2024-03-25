@@ -100,7 +100,7 @@ if selected == '📊':
     less_day_2 = df.loc[df['working_hours']==df['working_hours'].min(), 'date'].squeeze()
     st.markdown(f"**Average hours per week**: {average_week}")
     st.markdown(f"**Average hours per day**: {average_day}")
-    st.markdown(f"On **{max_day["day_of_the_week"]}** ({max_day['date']}) is the day when you work more ({max_day_hours}), and **{less_day}** ({min_day_hours}) is the day when you work less")
+    st.markdown(f"On **{max_day['day_of_the_week']}** ({max_day['date']}) is the day when you work more ({max_day_hours}), and **{less_day}** ({min_day_hours}) is the day when you work less")
     st.markdown(f"**{max_day_2}** ({max_day_hours_2}) is the day when you work more, and **{less_day_2}** ({less_day_hours_2}) is the day when you work less")
 
 
