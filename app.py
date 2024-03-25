@@ -97,3 +97,12 @@ if selected == '📊':
     st.markdown(f"**Average hours per week**: {average_week}")
     st.markdown(f"**Average hours per day**: {average_day}")
     st.markdown(f"**{max_day}** ({max_day_hours}) is the day when you work more, and **{less_day}** ({min_day_hours}) is the day when you work les")
+
+
+# Initialize connection.
+conn = st.connection('mysql', type='sql')
+
+# Perform query.
+df = conn.query('SELECT * from mytable;', ttl=600)
+
+df
