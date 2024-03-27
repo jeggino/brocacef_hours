@@ -27,6 +27,11 @@ def insert_input(date,start_hour,finish_hour,long_brake,short_brake,working_hour
 
   return db.put({"date":str(date),"start_hour":start_hour,"finish_hour":finish_hour,"long_brake":long_brake,"short_brake":short_brake,"working_hours":working_hours})
 
+def stream_data():
+    for word in _LOREM_IPSUM.split(" "):
+        yield word + " "
+        time.sleep(0.02)
+        
 # --- APP ---
 # horizontal menu
 selected = option_menu(None, ['✍️','📊'], 
@@ -107,12 +112,11 @@ if selected == '📊':
         # **{max_day_2['day_of_the_week']}**, on the date of **{max_day_2['date']}**, was the day when you worked the most hours in absolute terms. On the other hand, **{less_day}**, on the date of **{less_day_2['date']}**, was the day when you worked the fewest hours in absolute terms.
         # """)
 
-        stream_data = f"""
+        _LOREM_IPSUM = f"""
         On average, you work **{average_week}** hours per week, which is equivalent to a daily average of **{average_day}** hours. 
         **{max_day}** is the day when you usually work the most, with a total of **{max_day_hours}** hours. In contrast, **{less_day}** is the day when you work the least, with only **{min_day_hours}** hours worked. 
         **{max_day_2['day_of_the_week']}**, on the date of **{max_day_2['date']}**, was the day when you worked the most hours in absolute terms. On the other hand, **{less_day}**, on the date of **{less_day_2['date']}**, was the day when you worked the fewest hours in absolute terms.
         """
 
         st.write_stream(stream_data)
-
 
