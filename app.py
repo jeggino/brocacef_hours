@@ -88,7 +88,7 @@ if selected == '📊':
         use_container_width = True
 )
 
-    average_week = round(data_df["working_hours"].mean(),2)
+    average_week = round(data_df["working_hours"][:-1].mean(),2)
     average_day = round(df["working_hours"].mean(),2)
     max_day = data_df_day.loc[data_df_day['working_hours']==data_df_day['working_hours'].max(), 'day_of_the_week'].squeeze()
     less_day = data_df_day.loc[data_df_day['working_hours']==data_df_day['working_hours'].min(), 'day_of_the_week'].squeeze()
