@@ -98,9 +98,8 @@ if selected == '📊':
     max_day_2 = df.loc[df['working_hours']==df['working_hours'].max(), ["day_of_the_week",'date']].squeeze()
     less_day_hours_2 = round(df["working_hours"].min(),2)
     less_day_2 = df.loc[df['working_hours']==df['working_hours'].min(),["day_of_the_week",'date'] ].squeeze()
-    st.markdown(f"**Average hours per week**: {average_week}")
-    st.markdown(f"**Average hours per day**: {average_day}")
-    st.markdown(f"The **{max_day_2['day_of_the_week']}** ({max_day_2['date']}) is the day when you worked more , and the **{less_day_2['day_of_the_week']}** ({less_day_2['date']}) is the day when you worked less")
-    st.markdown(f"In average you work more on **{max_day}** ({max_day_hours}), instead on **{less_day}** you work less hours ({min_day_hours})")
+
+    # REPORT
+    st.markdown(f"On average, you work **{average_week}** hours per week, which is equivalent to a daily average of **{average_day}** hours. **{max_day}** is the day when you usually work the most, with a total of {max_day_hours} hours. In contrast, **{less_day}** is the day when you work the least, with only {min_day_hours} hours worked. **{max_day_2['day_of_the_week']}**, on the date of {max_day_2['date']}, was the day when you worked the most hours in absolute terms. On the other hand, **{less_day}**, on the date of {less_day_2['date']}, was the day when you worked the fewest hours in absolute terms.")
 
 
