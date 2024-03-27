@@ -101,5 +101,6 @@ if selected == '📊':
     st.markdown(f"**Average hours per week**: {average_week}")
     st.markdown(f"**Average hours per day**: {average_day}")
     st.markdown(f"The **{max_day_2['day_of_the_week']}** ({max_day_2['date']}) is the day when you worked more , and the **{less_day_2['day_of_the_week']}** ({less_day_2['date']}) is the day when you worked less")
+    st.markdown(f"In average you work more on **{max_day}** ({max_day_hours}), instead on **{less_day}** you work less hours ({min_day_hours})")
 
 
