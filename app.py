@@ -12,6 +12,11 @@ st.set_page_config(
     page_title="Brocacef",
     page_icon="💪",
     layout="wide",
+    menu_items={
+        'Get Help': 'https://www.extremelycoolapp.com/help',
+        'Report a bug': "https://www.extremelycoolapp.com/bug",
+        'About': "# This is a header. This is an *extremely* cool app!"
+    }
     
 )
 
@@ -38,11 +43,7 @@ selected = option_menu(None, ['✍️','📊'],
                        icons=None,
                        default_index=0,
                        orientation="horizontal",
-                       menu_items={
-                            'Get Help': 'https://www.extremelycoolapp.com/help',
-                            'Report a bug': "https://www.extremelycoolapp.com/bug",
-                            'About': "# This is a header. This is an *extremely* cool app!"
-                        })
+                       )
 
 if selected == '✍️':
   date = st.date_input("Date", datetime.datetime.today())
